@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: products
+  cloud:
+    gateway:
+      routes:
+        - id: my_service_route
+          uri: localhost:8080
+          predicates:
+            - Path=/hola/**
+  r2dbc:
+    url: r2dbc:postgresql://prueba.c7a8cymka2mq.us-east-1.rds.amazonaws.com:5432/postgres?sslMode=require
+    username: pepe
+    password: andresisaza87
+
+  sql:   # Opcional, si quieres habilitar logs de SQL
+    init:
+      mode: always
